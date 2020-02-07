@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bienvenue sur le super site de la promo 17 !</h1>
+    <% if (apprenants.length > 0) { %>
+        <ul>
+        <% apprenants.forEach(apprenant => { %>
+            <li>
+                <a href="/apprenants/supprimer/<%= apprenant.id %>">x</a>
+                <%= `${apprenant.firstName} ${apprenant.lastName}` %>
+            </li>
+        <% }) %>
+        </ul>
+    <% } else { %>
+        <p>Il n'y a personne wesh!</p>
+    <% } %>
+    <form action="/apprenants/ajouter" method="POST">
+        <label for="prenom">Prenom: </label>
+        <input type="text" name="prenom" id="prenom">
+        <label for="nom">Nom: </label>
+        <input type="text" name="nom" id="nom">
+        <input type="submit">
+    </form>
+</body>
+</html>
